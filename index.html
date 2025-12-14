@@ -3,57 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Blueprint AI Consulting Co. — AI Consulting</title>
 
-  <!-- Primary meta -->
-  <meta name="description" content="Blueprint AI Consulting Co. designs and implements practical AI systems that simplify operations using the tools you already use." />
+  <title>Blueprint AI Consulting Co.</title>
+  <meta name="description" content="Blueprint AI Consulting Co. builds practical AI systems around the tools you already use." />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#070c18" />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://drewhufnagle-code.github.io/blueprint-ai-site/" />
 
-  <!-- Favicons / Touch -->
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo.png" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Blueprint AI Consulting Co. — AI Consulting" />
-  <meta property="og:description" content="We build practical AI systems that remove manual work, reduce chaos, and make your business easier to run." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/drewhufnagle-code/blueprint-ai-site/main/assets/logo.png" />
+  <link rel="preconnect" href="https://calendly.com" />
+  <link rel="preconnect" href="https://assets.calendly.com" />
+  <link rel="dns-prefetch" href="https://calendly.com" />
+  <link rel="dns-prefetch" href="https://assets.calendly.com" />
+
+  <meta property="og:title" content="Blueprint AI Consulting Co." />
+  <meta property="og:description" content="AI consulting that optimizes your systems using the tools you already use." />
   <meta property="og:url" content="https://drewhufnagle-code.github.io/blueprint-ai-site/" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://drewhufnagle-code.github.io/blueprint-ai-site/logo.png" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blueprint AI Consulting Co. — AI Consulting" />
-  <meta name="twitter:description" content="We build practical AI systems that remove manual work, reduce chaos, and make your business easier to run." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/drewhufnagle-code/blueprint-ai-site/main/assets/logo.png" />
+  <meta name="twitter:title" content="Blueprint AI Consulting Co." />
+  <meta name="twitter:description" content="AI consulting that optimizes your systems using the tools you already use." />
+  <meta name="twitter:image" content="https://drewhufnagle-code.github.io/blueprint-ai-site/logo.png" />
 
-  <!-- Performance hints -->
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
-  <link rel="preconnect" href="https://calendly.com" />
-  <link rel="dns-prefetch" href="//assets.calendly.com" />
-  <link rel="dns-prefetch" href="//calendly.com" />
-
-  <!-- Structured data (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://drewhufnagle-code.github.io/blueprint-ai-site/#org",
         "name": "Blueprint AI Consulting Co.",
         "url": "https://drewhufnagle-code.github.io/blueprint-ai-site/",
-        "logo": "https://raw.githubusercontent.com/drewhufnagle-code/blueprint-ai-site/main/assets/logo.png",
-        "sameAs": []
+        "logo": "https://drewhufnagle-code.github.io/blueprint-ai-site/logo.png",
+        "description": "Blueprint AI Consulting Co. builds practical AI systems around the tools you already use."
       },
       {
         "@type": "ProfessionalService",
         "name": "Blueprint AI Consulting Co.",
-        "description": "Design and implement practical AI systems that simplify operations using the tools you already use.",
-        "serviceType": ["Systems Audit", "Blueprint Buildout", "Optimization Retainer", "Team Training"],
-        "provider": { "@id": "https://drewhufnagle-code.github.io/blueprint-ai-site/#org" }
+        "url": "https://drewhufnagle-code.github.io/blueprint-ai-site/",
+        "description": "AI consulting focused on practical systems, automation, and adoption using your existing tools.",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Pennsylvania" }
+        ],
+        "makesOffer": [
+          { "@type": "Offer", "name": "Founding Client Pilot", "priceCurrency": "USD", "price": "300" },
+          { "@type": "Offer", "name": "Systems Audit", "priceCurrency": "USD", "price": "450" },
+          {
+            "@type": "Offer",
+            "name": "Core Buildout",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "1200" }
+          },
+          {
+            "@type": "Offer",
+            "name": "The Blueprint",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "2500" }
+          },
+          {
+            "@type": "Offer",
+            "name": "Flex Support",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "price": "150", "unitText": "week" }
+          }
+        ]
       }
     ]
   }
@@ -63,7 +80,7 @@
     :root{
       --bg:#070c18;
       --text:#e9eefc;
-      --muted:#c5d6ff; /* slightly higher contrast for accessibility */
+      --muted:#c9d4ff;
       --blue:#3aa0ff;
       --blue2:#66d0ff;
       --ok:#7dffb1;
@@ -73,7 +90,6 @@
       --grid: linear-gradient(to right, rgba(140,190,255,.08) 1px, transparent 1px),
               linear-gradient(to bottom, rgba(140,190,255,.08) 1px, transparent 1px);
     }
-    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -88,20 +104,39 @@
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:24px}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:10px 0;
+
+    .skip-link{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
     }
+    .skip-link:focus{
+      position:static;
+      width:auto;
+      height:auto;
+      padding:10px 12px;
+      margin:10px 0;
+      border-radius:12px;
+      border:1px solid rgba(120,180,255,.22);
+      background: rgba(12,20,48,.85);
+      display:inline-block;
+    }
+
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0;}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
-    .brand img{
-      width:42px; height:42px; border-radius:999px; object-fit:cover;
-      border:1px solid rgba(120,180,255,.30);
-      background: rgba(10,18,45,.55);
-      box-shadow: 0 0 0 6px rgba(58,160,255,.06);
+    .brand-logo{
+      width:46px; height:46px;
+      border-radius:12px;
+      object-fit:contain;
+      filter: drop-shadow(0 10px 25px rgba(58,160,255,.18));
     }
     .brand-title{display:flex; flex-direction:column; letter-spacing:.2px;}
     .brand-title strong{font-size:14px}
     .brand-title span{font-size:12px; color:var(--muted)}
+
     .navlinks{display:flex; gap:16px; align-items:center}
     .navlinks a{text-decoration:none; color:var(--muted); font-size:13px; padding:8px 10px; border-radius:12px;}
     .navlinks a:hover{background:rgba(255,255,255,.06); color:var(--text)}
@@ -128,6 +163,18 @@
     .btn.primary:hover{filter:brightness(1.05)}
     .btn.alt{background: rgba(255,255,255,.06);}
 
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+
     .hero{
       margin-top:18px;
       border-radius: var(--radius);
@@ -150,40 +197,29 @@
       pointer-events:none;
     }
     .hero-inner{padding:46px 22px; display:grid; gap:22px}
-    @media (min-width: 900px){
-      .hero-inner{grid-template-columns: 1.15fr .85fr; align-items:center; padding:60px 54px}
-    }
-    h1{margin:0; font-size:42px; line-height:1.06; letter-spacing:-.6px;
-      text-shadow: 0 0 22px rgba(102,208,255,.10);} 
+    @media (min-width: 900px){ .hero-inner{grid-template-columns: 1.15fr .85fr; align-items:center; padding:60px 54px} }
+
+    h1{margin:0; font-size:42px; line-height:1.06; letter-spacing:-.6px; text-shadow: 0 0 22px rgba(102,208,255,.10);}
     @media (min-width: 900px){ h1{font-size:56px} }
     .sub{margin:12px 0 0 0; font-size:16px; color:var(--muted); max-width: 62ch;}
     .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .trust{margin-top:14px; font-size:13px; color:rgba(233,238,252,.78);
-      display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
-    .dot{width:8px; height:8px; border-radius:50%; background: var(--ok);
-      box-shadow: 0 0 22px rgba(125,255,177,.25);} 
+    .trust{margin-top:14px; font-size:13px; color:rgba(233,238,252,.90); display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+    .dot{width:8px; height:8px; border-radius:50%; background: var(--ok); box-shadow: 0 0 22px rgba(125,255,177,.25);}
 
-    .card{border-radius: var(--radius);
-      border:1px solid rgba(120,180,255,.16);
-      background: rgba(7,12,24,.50);
-      padding:18px;}
+    .card{border-radius: var(--radius); border:1px solid rgba(120,180,255,.16); background: rgba(7,12,24,.50); padding:18px;}
     .card h3{margin:0 0 8px 0; font-size:14px; letter-spacing:.2px}
     .card p{margin:0; color:var(--muted); font-size:13px}
     .stack{display:grid; gap:12px}
 
     .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .pill{font-size:12px; color:rgba(233,238,252,.86);
-      border:1px solid rgba(120,180,255,.16);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px; border-radius:999px;}
+    .pill{font-size:12px; color:rgba(233,238,252,.92); border:1px solid rgba(120,180,255,.16); background: rgba(255,255,255,.04); padding:8px 10px; border-radius:999px;}
 
     section{margin-top:22px}
     .grid2{display:grid; gap:14px}
     @media (min-width: 900px){ .grid2{grid-template-columns: 1fr 1fr} }
     .grid3{display:grid; gap:14px}
     @media (min-width: 900px){ .grid3{grid-template-columns: 1fr 1fr 1fr} }
-    .kicker{font-size:12px; color: rgba(102,208,255,.90);
-      letter-spacing:.18em; text-transform:uppercase;}
+    .kicker{font-size:12px; color: rgba(102,208,255,.90); letter-spacing:.18em; text-transform:uppercase;}
     h2{margin:8px 0 0 0; font-size:26px; letter-spacing:-.2px}
     .list{margin:12px 0 0 0; padding-left:18px; color:var(--muted)}
     .list li{margin:8px 0}
@@ -191,76 +227,57 @@
     .offer strong{font-size:15px}
     .small{font-size:12px; color:var(--muted)}
 
-    .cta{
-      margin-top:22px;
-      border-radius: var(--radius);
-      border:1px solid rgba(120,180,255,.18);
-      background:
-        radial-gradient(600px 420px at 20% 20%, rgba(58,160,255,.16), transparent 60%),
-        rgba(10,16,40,.55);
-      box-shadow: var(--shadow);
-      padding:22px;
-      display:grid;
-      gap:14px;
-    }
-    @media (min-width: 900px){
-      .cta{grid-template-columns: 1.2fr .8fr; align-items:start; padding:28px 28px}
-    }
-    footer{
-      margin:26px 0 10px;
-      color:rgba(233,238,252,.60);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .note{font-size:12px; color:rgba(233,238,252,.66); margin:0}
-    .contact-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .external-indicator{margin-left:8px; font-size:11px; opacity:0.85}
+    .pricebar{margin-top:14px; display:grid; gap:12px;}
+    @media (min-width: 900px){ .pricebar{grid-template-columns: 1fr 1fr 1fr 1fr 1fr} }
+    .pricechip{border-radius: 999px; border:1px solid rgba(120,180,255,.16); background: rgba(255,255,255,.04); padding:10px 12px; font-size:12px; color: rgba(233,238,252,.92); text-align:center; white-space:nowrap;}
+    .tag{display:inline-flex; align-items:center; gap:8px; font-size:12px; color: rgba(233,238,252,.92); border:1px solid rgba(120,180,255,.16); background: rgba(255,255,255,.04); padding:8px 10px; border-radius:999px;}
+    .tag .dot2{width:8px; height:8px; border-radius:50%; background: rgba(102,208,255,.85); box-shadow: 0 0 20px rgba(102,208,255,.22);}
+
+    .cta{margin-top:22px; border-radius: var(--radius); border:1px solid rgba(120,180,255,.18); background: radial-gradient(600px 420px at 20% 20%, rgba(58,160,255,.16), transparent 60%), rgba(10,16,40,.55); box-shadow: var(--shadow); padding:22px; display:grid; gap:14px;}
+    @media (min-width: 900px){ .cta{grid-template-columns: 1.2fr .8fr; align-items:start; padding:28px 28px} }
+    footer{margin:26px 0 10px; color:rgba(233,238,252,.70); font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; align-items:center;}
+    .footer-left{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+    .footer-logo{width:24px; height:24px; border-radius:6px; object-fit:contain; opacity:.92}
   </style>
 </head>
 
 <body>
-  <!-- Skip link for keyboard users -->
-  <a class="visually-hidden" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <div class="wrap">
-    <nav class="nav" role="navigation" aria-label="Primary navigation">
+    <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Blueprint AI Consulting Co. Home">
-        <!-- Prefer a WebP source with PNG fallback. Place files at /assets/logo.webp and /assets/logo.png -->
-        <picture>
-          <source srcset="/assets/logo.webp" type="image/webp">
-          <img src="/assets/logo.png" alt="Blueprint AI Consulting Co. logo" loading="lazy" width="42" height="42">
-        </picture>
-
+        <img class="brand-logo" src="logo.png" alt="Blueprint AI Consulting Co. logo" />
         <div class="brand-title">
           <strong>Blueprint AI Consulting Co.</strong>
           <span>AI systems around the tools you already use</span>
         </div>
       </a>
 
-      <div class="navlinks" role="navigation" aria-label="Secondary navigation">
+      <div class="navlinks" role="navigation" aria-label="Primary links">
         <a href="#what">What we do</a>
         <a href="#offers">Offers</a>
         <a href="#values">Values</a>
-        <a class="btn" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener noreferrer" aria-label="Book a call (opens in new tab)">Book a call<span class="visually-hidden">, opens in new tab</span></a>
+        <a class="btn" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener">
+          Book a call<span class="sr-only"> (opens in a new tab)</span>
+        </a>
       </div>
     </nav>
 
-    <!-- Main content area -->
-    <main id="main-content" role="main">
-      <header id="top" class="hero" aria-labelledby="hero-heading">
+    <main id="main" role="main">
+      <header id="top" class="hero" aria-label="Hero">
         <div class="hero-inner">
           <div>
-            <div class="kicker">Blueprint AI Consulting Co.</div>
-            <h1 id="hero-heading">Optimize your systems.<br/>Win back your life.</h1>
+            <div class="kicker">AI Consulting</div>
+            <h1>AI consulting that optimizes your systems.<br/>Win back your life.</h1>
             <p class="sub">
               We build practical AI systems that remove manual work, reduce chaos, and make your business easier to run, using the tools you already know.
             </p>
 
             <div class="hero-actions">
-              <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener noreferrer" aria-label="Book a call (opens in new tab)">Book a call<span class="visually-hidden">, opens in new tab</span></a>
+              <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener">
+                Book a call<span class="sr-only"> (opens in a new tab)</span>
+              </a>
               <a class="btn" href="#offers">See offers</a>
             </div>
 
@@ -277,24 +294,24 @@
             </div>
           </div>
 
-          <div class="stack" aria-hidden="false">
+          <div class="stack" aria-label="Quick facts">
             <div class="card">
               <h3>Typical outcomes</h3>
               <p>Fewer manual steps. Faster follow-up. Cleaner handoffs. Better visibility. Less stress.</p>
             </div>
             <div class="card">
               <h3>Best fit</h3>
-              <p>Service businesses, small teams, and operators who want clarity and execution, not another tool.</p>
+              <p>Local operators and small teams who want clarity and execution, not another tool.</p>
             </div>
             <div class="card">
-              <h3>Speed</h3>
-              <p>Start with an audit. Build the system. Train the team. Iterate based on real usage.</p>
+              <h3>Start simple</h3>
+              <p>Begin with a Pilot or Audit, then build the core process and scale from there.</p>
             </div>
           </div>
         </div>
       </header>
 
-      <section id="what">
+      <section id="what" aria-label="What we do">
         <div class="kicker">What we do</div>
         <h2>AI systems that connect what you already use</h2>
         <div class="grid2">
@@ -324,137 +341,150 @@
         </div>
       </section>
 
-      <section id="offers">
+      <section id="offers" aria-label="Offers">
         <div class="kicker">Offers</div>
-        <h2>Pick the level of help you need</h2>
+        <h2>Offers and pricing</h2>
+        <p class="sub">Pilot-first options for local small business operators. Discovery required before any Buildout or Blueprint.</p>
 
-        <div class="grid3">
+        <div class="pricebar" aria-label="Price summary">
+          <div class="pricechip">Pilot: $300</div>
+          <div class="pricechip">Audit: $450</div>
+          <div class="pricechip">Core: from $1,200</div>
+          <div class="pricechip">Blueprint: from $2,500</div>
+          <div class="pricechip">Flex: $150 per week</div>
+        </div>
+
+        <div style="margin-top:14px" class="grid3">
           <div class="card offer">
-            <strong>Systems Audit and Action Plan</strong>
-            <div class="small">Clarity first. Know what to fix and what to ignore.</div>
+            <strong>Founding Client Pilot - $300</strong>
+            <div class="small">Timeline: 14 days | 14-day money-back guarantee</div>
             <ul class="list">
-              <li>Workflow map and bottlenecks</li>
-              <li>Impact-ranked opportunities</li>
-              <li>30-day build plan</li>
+              <li>Map one workflow end-to-end</li>
+              <li>Implement one quick-win system</li>
+              <li>Simple handoff and next-step plan</li>
             </ul>
-            <div class="small">Values: clarity, precision, durable systems</div>
+            <div class="tag"><span class="dot2"></span>Best for a first quick win and testimonial</div>
           </div>
 
           <div class="card offer">
-            <strong>Blueprint Buildout</strong>
-            <div class="small">We build the system around your current tools.</div>
+            <strong>Systems Audit - $450</strong>
+            <div class="small">Timeline: 3 to 5 days | Clarity before building</div>
             <ul class="list">
-              <li>End-to-end workflow implementation</li>
-              <li>Automations for intake, follow-up, updates</li>
+              <li>Workflow map and bottleneck diagnosis</li>
+              <li>Top 3 fixes with a prioritized plan</li>
+              <li>Tool recommendations and rollout steps</li>
             </ul>
-            <div class="small">Values: systems over tools, execution, adoption</div>
+            <div class="tag"><span class="dot2"></span>Deliverable: written plan you can follow</div>
           </div>
 
           <div class="card offer">
-            <strong>Optimization Retainer</strong>
-            <div class="small">Ongoing improvements without restarting.</div>
+            <strong>Core Buildout - from $1,200</strong>
+            <div class="small">Timeline: 1 to 2 weeks | One core process implemented</div>
             <ul class="list">
-              <li>Monthly system tuning</li>
-              <li>New automations as needs change</li>
-              <li>Priority support and fixes</li>
+              <li>One system built and implemented</li>
+              <li>Templates, tracking, light automation</li>
+              <li>Short training so it sticks</li>
             </ul>
-            <div class="small">Values: execution, reliability, trust</div>
+            <div class="tag"><span class="dot2"></span>Includes setup, configuration, templates</div>
           </div>
         </div>
 
         <div style="margin-top:14px" class="grid2">
           <div class="card offer">
-            <strong>Team Training and Adoption</strong>
-            <div class="small">If the team is not using the system, nothing matters.</div>
+            <strong>The Blueprint - from $2,500</strong>
+            <div class="small">Timeline: 3 to 6 weeks | Multi-workflow operator build</div>
             <ul class="list">
-              <li>Training sessions</li>
-              <li>Simple operating rules</li>
-              <li>Quick reference guides</li>
+              <li>Multiple workflows built and standardized</li>
+              <li>Weekly dashboard and operating rhythm</li>
+              <li>Team handoff and cleanup</li>
             </ul>
-            <div class="small">Values: people first, clarity, adoption</div>
+            <div class="tag"><span class="dot2"></span>Builds a simple operating system for the business</div>
           </div>
 
-          <div class="card">
-            <h3>Not sure what you need</h3>
-            <p class="note">
-              Start with the Systems Audit. It gives you a clear plan, whether you build with us or not.
-            </p>
-            <div class="hero-actions" style="margin-top:12px">
-              <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener noreferrer" aria-label="Book a call (opens in new tab)">Book a call<span class="visually-hidden">, opens in new tab</span></a>
-              <a class="btn" href="#values">See values</a>
-            </div>
+          <div class="card offer">
+            <strong>Flex Support - $150 per week</strong>
+            <div class="small">Timeline: ongoing | Up to 60 minutes per week included</div>
+            <ul class="list">
+              <li>Questions, fixes, and small improvements</li>
+              <li>Priority list and weekly focus</li>
+              <li>Additional time: $60 per hour if needed</li>
+            </ul>
+            <div class="tag"><span class="dot2"></span>Upgrade or pause anytime</div>
           </div>
+        </div>
+
+        <div style="margin-top:14px" class="card">
+          <h3>Support</h3>
+          <p>Support included: text or call with questions during normal business hours. If something turns into hands-on work outside the package, we handle it under Flex Support.</p>
+        </div>
+
+        <div class="hero-actions" style="margin-top:14px">
+          <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener">
+            Book a discovery call<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+          <a class="btn" href="#contact">Contact</a>
         </div>
       </section>
 
-      <section id="values">
+      <section id="values" aria-label="Values">
         <div class="kicker">Values</div>
         <h2>How we operate</h2>
 
         <div class="grid3">
-          <div class="card">
-            <h3>Clarity over complexity</h3>
-            <p>If it does not simplify life, it is not worth building.</p>
-          </div>
-          <div class="card">
-            <h3>Build systems, not tool stacks</h3>
-            <p>We build an AI system around the tools you already use, so the team adopts it.</p>
-          </div>
-          <div class="card">
-            <h3>Systems beat hacks</h3>
-            <p>Shortcuts fail. Durable systems scale.</p>
-          </div>
-          <div class="card">
-            <h3>Execution matters</h3>
-            <p>AI only has value when it is implemented and used.</p>
-          </div>
-          <div class="card">
-            <h3>Trust through precision</h3>
-            <p>We do not overpromise. We build what works.</p>
-          </div>
-          <div class="card">
-            <h3>People first</h3>
-            <p>If your team hates it, the system failed.</p>
-          </div>
+          <div class="card"><h3>Clarity over complexity</h3><p>If it does not simplify life, it is not worth building.</p></div>
+          <div class="card"><h3>Build systems, not tool stacks</h3><p>We build an AI system around the tools you already use, so the team adopts it.</p></div>
+          <div class="card"><h3>Systems beat hacks</h3><p>Shortcuts fail. Durable systems scale.</p></div>
+          <div class="card"><h3>Execution matters</h3><p>AI only has value when it is implemented and used.</p></div>
+          <div class="card"><h3>Trust through precision</h3><p>We do not overpromise. We build what works.</p></div>
+          <div class="card"><h3>People first</h3><p>If your team hates it, the system failed.</p></div>
         </div>
       </section>
 
-      <section id="contact" class="cta" aria-labelledby="contact-heading">
+      <section id="contact" class="cta" aria-label="Contact">
         <div>
           <div class="kicker">Contact</div>
-          <h2 id="contact-heading">Schedule a call</h2>
-          <p class="sub">Pick a time that works, or call if you prefer.</p>
-          <div class="contact-actions">
-            <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener noreferrer" aria-label="Open scheduling (opens in new tab)">Open scheduling<span class="visually-hidden">, opens in new tab</span></a>
-            <!-- phone link includes explicit number for screen readers -->
-            <a class="btn alt" href="tel:+17177798316" aria-label="Call Blueprint AI at +1 717 779 8316">Call +1 (717) 779-8316</a>
+          <h2>Schedule a call</h2>
+          <p class="sub">Pick a time that works. If you prefer to call, use the call button.</p>
+          <div class="hero-actions" style="margin-top:12px">
+            <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener">
+              Open scheduling<span class="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a class="btn alt" id="callBtn" href="#" aria-label="Call Blueprint AI Consulting Co.">Call</a>
           </div>
+          <p style="margin-top:10px;color:rgba(233,238,252,.72);font-size:12px">
+            We do not sell tools. We build an AI system around the tools you already use.
+          </p>
         </div>
 
-        <div class="card" style="padding:0; overflow:hidden">
-          <div
-            class="calendly-inline-widget"
-            data-url="https://calendly.com/blueprintaiconsultingco"
-            title="Schedule a call with Blueprint AI"
-            role="region"
-            aria-label="Calendly scheduling widget"
-            style="min-width:320px;height:760px;">
-          </div>
+        <div class="card" style="padding:0; overflow:hidden" role="region" aria-label="Calendly scheduling widget">
+          <div class="calendly-inline-widget"
+               data-url="https://calendly.com/blueprintaiconsultingco"
+               style="min-width:320px;height:760px;"
+               title="Calendly scheduling widget"></div>
         </div>
       </section>
     </main>
 
     <footer role="contentinfo">
-      <div>© <span id="year"></span> Blueprint AI Consulting Co.</div>
+      <div class="footer-left">
+        <img class="footer-logo" src="logo.png" alt="Blueprint AI Consulting Co. logo" />
+        <div>© <span id="year"></span> Blueprint AI Consulting Co.</div>
+      </div>
       <div>Optimize your systems. Win back your life.</div>
     </footer>
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    (function() {
+      var b64 = "KzE3MTc3Nzk4MzE2";
+      try {
+        var phone = atob(b64);
+        var btn = document.getElementById("callBtn");
+        if (btn) btn.href = "tel:" + phone;
+      } catch (e) {}
+    })();
   </script>
-
-  <!-- Calendly widget script (async) -->
-  <script src="https://assets.calendly.com/assets/external/widget.js" async crossorigin="anonymous"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
