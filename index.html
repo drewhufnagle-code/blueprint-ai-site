@@ -14,11 +14,6 @@
   <link rel="icon" href="logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="logo.png" />
 
-  <link rel="preconnect" href="https://calendly.com" />
-  <link rel="preconnect" href="https://assets.calendly.com" />
-  <link rel="dns-prefetch" href="https://calendly.com" />
-  <link rel="dns-prefetch" href="https://assets.calendly.com" />
-
   <meta property="og:title" content="Blueprint AI Consulting Co." />
   <meta property="og:description" content="Make AI Work for You. Not the Other Way Around." />
   <meta property="og:url" content="https://drewhufnagle-code.github.io/blueprint-ai-site/" />
@@ -235,10 +230,9 @@
       padding:18px;
       display:grid;
       gap:14px;
+      align-items: center;
     }
-    @media (min-width: 900px){ .cta{grid-template-columns: 1fr 1.2fr; padding:22px} }
-
-    .calendly-inline-widget{border-radius: 16px; overflow:hidden;}
+    @media (min-width: 900px){ .cta{grid-template-columns: 1fr 0.5fr; padding:22px} }
   </style>
 </head>
 
@@ -262,7 +256,7 @@
           <a href="#values">Values</a>
           <a href="#about">About</a>
           <a class="btn alt" href="#contact">Contact</a>
-          <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener">
+          <a class="btn primary" href="https://calendar.app.google/Ck7sNZfCW2rPB9mq9" target="_blank" rel="noopener">
             Book a session<span class="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
@@ -282,7 +276,7 @@
             </p>
 
             <div class="hero-actions" aria-label="Primary calls to action">
-              <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener">
+              <a class="btn primary" href="https://calendar.app.google/Ck7sNZfCW2rPB9mq9" target="_blank" rel="noopener">
                 Book a discovery session<span class="sr-only"> (opens in a new tab)</span>
               </a>
               <a class="btn" href="#what">See How It Works</a>
@@ -476,21 +470,15 @@
           <div class="kicker">Contact</div>
           <h2>Ready to buy back your time?</h2>
           <p class="sub">You are one conversation away from a clearer business.</p>
-          <div class="hero-actions" style="margin-top:12px">
-            <a class="btn primary" href="https://calendly.com/blueprintaiconsultingco" target="_blank" rel="noopener">
-              Book Your Free Discovery Session<span class="sr-only"> (opens in a new tab)</span>
-            </a>
-          </div>
           <p style="margin-top:10px;color:rgba(233,238,252,.72);font-size:12px">
             No pressure sales. 15-minute chat. You leave with at least one actionable tip.
           </p>
         </div>
 
-        <div class="card" style="padding:0; overflow:hidden" role="region" aria-label="Calendly scheduling widget">
-          <div class="calendly-inline-widget"
-               data-url="https://calendly.com/blueprintaiconsultingco"
-               style="min-width:320px;height:760px;"
-               title="Calendly scheduling widget"></div>
+        <div style="text-align:center;">
+          <a class="btn primary" href="https://calendar.app.google/Ck7sNZfCW2rPB9mq9" target="_blank" rel="noopener" style="padding: 1.2rem 2rem; font-size: 1.1rem;">
+            Book Your Free Discovery Session<span class="sr-only"> (opens in a new tab)</span>
+          </a>
         </div>
       </section>
     </main>
@@ -507,6 +495,5 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
-  </html>
+</html>
