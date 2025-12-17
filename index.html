@@ -1,4 +1,4 @@
-      <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -234,6 +234,29 @@
       align-items: center;
     }
     @media (min-width: 900px){ .cta{grid-template-columns: 1fr 0.5fr; padding:22px} }
+
+    /* NEW STYLES FOR ABOUT SECTION IMAGE */
+    .about-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: start;
+    }
+    /* Stack on mobile, side-by-side on desktop */
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1.5fr 1fr;
+        align-items: center;
+      }
+    }
+    .profile-pic {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      border: 2px solid rgba(120,180,255,.22);
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 
@@ -453,16 +476,21 @@
       <section id="about" aria-label="About Me">
         <div class="kicker">About</div>
         <h2>Hi, I’m Drew.</h2>
-        <div class="card" style="margin-top:14px">
-          <p>I’m the founder of Blueprint AI Consulting Co. I help business owners and everyday people simplify life and work with practical AI, automation, and simple systems that reduce stress and give you real time back.</p>
-          <br>
-          <p>My path into this started with a Bachelor of Science from the University of Pittsburgh, then work at <strong>Uber Advanced Technologies Group</strong>, where I was around early machine learning and automation. I saw what AI can do when it is built correctly. I also saw why most people bounce off it. It feels technical, unclear, and disconnected from real routines.</p>
-          <br>
-          <p>I’m also a <strong>high school baseball coach</strong>. Coaching shaped how I do this work. You do not improve by hearing a speech or buying a tool. You improve with fundamentals, a plan, repetition, and someone who can teach it in a way that fits your day. That is my approach with AI.</p>
-          <br>
-          <p><strong>AI is here whether we like it or not.</strong> The people who learn how to use it faster, in a practical way, will be in a better position. My job is to make that learning curve easier.</p>
-          <br>
-          <p>If you want less chaos and a setup that actually works day to day, Blueprint AI is built for you.</p>
+        <div class="card about-grid" style="margin-top:14px">
+          <div class="about-text">
+            <p>I’m the founder of Blueprint AI Consulting Co. I help business owners and everyday people simplify life and work with practical AI, automation, and simple systems that reduce stress and give you real time back.</p>
+            <br>
+            <p>My path into this started with a Bachelor of Science from the University of Pittsburgh, then work at <strong>Uber Advanced Technologies Group</strong>, where I was around early machine learning and automation. I saw what AI can do when it is built correctly. I also saw why most people bounce off it. It feels technical, unclear, and disconnected from real routines.</p>
+            <br>
+            <p>I’m also a <strong>high school baseball coach</strong>. Coaching shaped how I do this work. You do not improve by hearing a speech or buying a tool. You improve with fundamentals, a plan, repetition, and someone who can teach it in a way that fits your day. That is my approach with AI.</p>
+            <br>
+            <p><strong>AI is here whether we like it or not.</strong> The people who learn how to use it faster, in a practical way, will be in a better position. My job is to make that learning curve easier.</p>
+            <br>
+            <p>If you want less chaos and a setup that actually works day to day, Blueprint AI is built for you.</p>
+          </div>
+          <div class="about-image-container">
+            <img src="webselfie.jpeg" alt="Drew Hufnagle" class="profile-pic">
+          </div>
         </div>
       </section>
 
