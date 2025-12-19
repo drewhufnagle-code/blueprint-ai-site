@@ -218,7 +218,8 @@
       display:flex; justify-content:space-between; align-items:center; gap:12px;
       flex-wrap:wrap;
     }
-    .footer-left{display:flex; align-items:center; gap:12px}
+    .footer-left{display:flex; flex-direction:column; gap:8px;}
+    .footer-branding{display:flex; align-items:center; gap:12px;}
     .footer-logo{width:28px; height:28px; border-radius:8px; object-fit:contain}
 
     .cta{
@@ -260,7 +261,6 @@
     
     /* TESTIMONIAL STYLE */
     .quote-card {
-      /* Left align for better readability of long text */
       text-align: left;
       border-left: 4px solid var(--blue);
     }
@@ -551,8 +551,14 @@
           <div class="kicker">Contact</div>
           <h2>Ready to win back your time?</h2>
           <p class="sub">You are one conversation away from a clearer business.</p>
+          
           <p style="margin-top:10px;color:rgba(233,238,252,.72);font-size:12px">
             No pressure sales. 15-minute chat. You leave with at least one actionable tip.
+          </p>
+          
+          <p style="margin-top:14px; font-size:14px; color:var(--muted);">
+            General questions? Just want to know more?<br>
+            <a href="mailto:Blueprintaiconsultingco@gmail.com" style="color:var(--blue); text-decoration:none;">Blueprintaiconsultingco@gmail.com</a>
           </p>
         </div>
 
@@ -566,8 +572,11 @@
 
     <footer role="contentinfo">
       <div class="footer-left">
-        <img class="footer-logo" src="logo.png" alt="Blueprint AI Consulting Co. logo" />
-        <div>© <span id="year"></span> Blueprint AI Consulting Co.</div>
+        <div class="footer-branding">
+          <img class="footer-logo" src="logo.png" alt="Blueprint AI Consulting Co. logo" />
+          <div>© <span id="year"></span> Blueprint AI Consulting Co.</div>
+        </div>
+        <div><a href="mailto:Blueprintaiconsultingco@gmail.com" style="text-decoration:none; color:inherit;">Blueprintaiconsultingco@gmail.com</a></div>
       </div>
       <div>Optimize your systems. Win back your time.</div>
     </footer>
