@@ -1,723 +1,495 @@
-<!doctype html>
+    <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Blueprint AI Consulting Co. — We design, build, and deploy AI tools tailored to your operations." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0B1220" />
 
   <title>Blueprint AI Consulting Co. | AI Tools Built Around Your Operations</title>
-  <meta name="description" content="We design, build, and deploy AI tools tailored to your operations. Practical systems and custom apps for home service businesses, coaches, and operators." />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#070c18" />
 
-  <link rel="canonical" href="https://blueprintaiconsultingco.com/" />
+  <!-- Inter (brand font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="logo.png" type="image/png" />
-  <link rel="apple-touch-icon" href="logo.png" />
-
+  <!-- Open Graph -->
   <meta property="og:title" content="Blueprint AI Consulting Co." />
   <meta property="og:description" content="We design, build, and deploy AI tools tailored to your operations." />
-  <meta property="og:url" content="https://blueprintaiconsultingco.com/" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blueprintaiconsultingco.com/" />
   <meta property="og:image" content="logo.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blueprint AI Consulting Co." />
-  <meta name="twitter:description" content="We design, build, and deploy AI tools tailored to your operations." />
-  <meta name="twitter:image" content="logo.png" />
-
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#070c18;
-      --panel: rgba(10,16,40,.55);
-      --panel2: rgba(7,12,24,.56);
-      --text:#e9eefc;
-      --muted:#cfd8ee;
+      --bg:#070B12;
+      --panel:#0B1220;
+      --panel2:#0E1730;
+      --text:#EAF1FF;
+      --muted:#A6B1CC;
+      --muted2:#8793B2;
+      --line:rgba(112, 204, 140, .18);
 
-      --blue:#3aa0ff;
-      --blue2:#66d0ff;
+      /* Neon green (slightly darker, still glowing) */
+      --g1:#19e36c; /* darker neon */
+      --g2:#0fd361;
+      --g3:#0bbf58;
 
-      /* Slightly darker neon green (still glowy) */
-      --green:#18d676;
-      --green2:#5cff9c;
+      --shadow:0 10px 40px rgba(0,0,0,.45);
+      --radius:18px;
 
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --max: 1120px;
-
-      --grid: linear-gradient(to right, rgba(140,190,255,.08) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(140,190,255,.08) 1px, transparent 1px);
+      --max:1120px;
     }
 
-    *{box-sizing:border-box}
-    img{max-width:100%; height:auto}
-    a{color:inherit}
-
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
     body{
       margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(900px 600px at 15% 10%, rgba(58,160,255,.22), transparent 60%),
-        radial-gradient(700px 500px at 85% 15%, rgba(102,208,255,.14), transparent 60%),
-        radial-gradient(900px 700px at 50% 100%, rgba(58,160,255,.10), transparent 60%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.55;
-      -webkit-font-smoothing: antialiased;
+        radial-gradient(900px 600px at 20% -10%, rgba(25,227,108,.20), transparent 55%),
+        radial-gradient(900px 600px at 90% 0%, rgba(15,211,97,.12), transparent 50%),
+        radial-gradient(900px 700px at 60% 120%, rgba(15,211,97,.10), transparent 55%),
+        linear-gradient(180deg, #060A10, #070B12 40%, #060A10);
     }
 
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 16px 24px;
-    }
-    @media (min-width: 768px){
-      .wrap{padding:14px 24px 24px}
-    }
-
-    .skip-link{
-      position:absolute; left:-9999px; top:auto;
-      width:1px; height:1px; overflow:hidden;
-    }
-    .skip-link:focus{
-      position:static;
-      width:auto; height:auto;
-      padding:10px 12px;
-      margin:10px 0;
-      border-radius:12px;
-      border:1px solid rgba(120,180,255,.22);
-      background: rgba(12,20,48,.85);
-      display:inline-block;
+    /* Blueprint grid */
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(to right, rgba(25,227,108,.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(25,227,108,.07) 1px, transparent 1px);
+      background-size:48px 48px;
+      mask-image:radial-gradient(900px 600px at 50% 10%, rgba(0,0,0,1), rgba(0,0,0,.1) 55%, rgba(0,0,0,0) 78%);
+      opacity:.9;
     }
 
-    /* Header (~10% smaller, no tagline) */
-    .site-header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background: rgba(7,12,24,.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(120,180,255,.14);
+    a{color:inherit; text-decoration:none;}
+    a:hover{opacity:.92;}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:linear-gradient(180deg, rgba(7,11,18,.75), rgba(7,11,18,.45));
+      border-bottom:1px solid rgba(25,227,108,.12);
     }
-    .header-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:9px 16px;
+
+    header{
+      padding:16px 0; /* ~10% smaller than previous */
     }
-    @media (min-width: 768px){
-      .header-inner{padding:9px 24px}
+
+    nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
+
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
-      min-width:0;
+      display:flex; align-items:center; gap:12px; min-width:240px;
     }
-    .brand-logo{
-      width:46px; height:46px;
-      border-radius:14px;
-      object-fit:contain;
-      filter: drop-shadow(0 10px 25px rgba(58,160,255,.18));
-      flex:0 0 auto;
+    .brand img{
+      height:34px; width:auto;
+      filter: drop-shadow(0 0 10px rgba(25,227,108,.22));
     }
-    .brand-title strong{font-size:14px; line-height:1.1; letter-spacing:.2px;}
-    @media (min-width: 900px){
-      .brand-title strong{font-size:15px}
+    .brand .name{
+      font-weight:800; letter-spacing:.2px;
+      font-size:14px;
+      line-height:1.05;
     }
-
-    .navlinks{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      justify-content:flex-end;
-    }
-    .navlinks a.link{
-      text-decoration:none;
-      color:var(--muted);
+    .brand .tag{
+      display:block;
+      margin-top:3px;
       font-size:12px;
-      padding:7px 11px;
-      border-radius:12px;
-      border:1px solid transparent;
-      background: transparent;
-      white-space:nowrap;
-    }
-    .navlinks a.link:hover{
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      border-color: rgba(255,255,255,.06);
-    }
-    @media (max-width: 980px){
-      .nav{flex-direction:column; align-items:flex-start; gap:12px;}
-      .navlinks{
-        width:100%;
-        overflow-x:auto;
-        white-space:nowrap;
-        padding-bottom:8px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width:none;
-      }
-      .navlinks::-webkit-scrollbar{display:none;}
+      color:var(--muted);
+      font-weight:500;
     }
 
-    /* Buttons */
+    .links{
+      display:flex; align-items:center; gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+      flex:1;
+    }
+    .links a{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    .links a:hover{
+      border-color:rgba(25,227,108,.16);
+      color:var(--text);
+      background:rgba(14,23,48,.35);
+    }
+
+    .cta{
+      display:flex; gap:10px; align-items:center; justify-content:flex-end;
+      min-width:240px;
+    }
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(120,180,255,.22);
-      background: rgba(12,20,48,.55);
+      gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(25,227,108,.18);
+      background:rgba(14,23,48,.35);
       color:var(--text);
-      text-decoration:none;
       font-weight:800;
-      font-size:14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.22);
-      white-space:nowrap;
-      cursor:pointer;
-      transition: transform 0.1s ease, filter 0.1s ease;
-    }
-    .btn:active{transform: scale(0.98);}
-    .btn:hover{
-      border-color: rgba(120,180,255,.38);
-      background: rgba(12,20,48,.70);
-    }
-    .navlinks .btn{
-      padding:10px 12px;
       font-size:13px;
-      border-radius:13px;
+      letter-spacing:.1px;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      transition:transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(25,227,108,.30);
+      box-shadow:0 0 26px rgba(25,227,108,.12);
     }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(24,214,118,.96), rgba(92,255,156,.70));
-      border-color: rgba(92,255,156,.52);
-      color:#041114;
-      box-shadow: 0 14px 40px rgba(24,214,118,.18);
+      background:linear-gradient(135deg, rgba(25,227,108,.22), rgba(15,211,97,.12));
+      border-color:rgba(25,227,108,.35);
+      box-shadow:0 0 30px rgba(25,227,108,.12);
     }
-    .btn.primary:hover{filter:brightness(1.04);}
     .btn.secondary{
-      background: linear-gradient(135deg, rgba(58,160,255,.95), rgba(102,208,255,.75));
-      border-color: rgba(102,208,255,.55);
-      color:#061023;
-      box-shadow: 0 14px 40px rgba(58,160,255,.25);
-    }
-    .btn.secondary:hover{filter:brightness(1.04);}
-    .btn.ghost{
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.10);
-    }
-    @media (max-width: 600px){
-      .btn{white-space:normal; text-align:center; line-height:1.25;}
+      background:rgba(14,23,48,.55);
+      border-color:rgba(25,227,108,.20);
     }
 
-    .sr-only{
-      position:absolute; width:1px; height:1px;
-      padding:0; margin:-1px; overflow:hidden;
-      clip:rect(0,0,0,0); white-space:nowrap; border:0;
-    }
+    main{padding:30px 0 60px;}
+    section{padding:36px 0; border-top:1px solid rgba(25,227,108,.10);}
+    section:first-of-type{border-top:none;}
 
-    /* Hero */
     .hero{
-      margin-top:18px;
-      border-radius: var(--radius);
-      border:1px solid rgba(120,180,255,.18);
-      background:
-        radial-gradient(700px 500px at 0% 0%, rgba(58,160,255,.20), transparent 55%),
-        radial-gradient(700px 500px at 100% 0%, rgba(102,208,255,.14), transparent 55%),
-        radial-gradient(900px 700px at 50% 100%, rgba(24,214,118,.10), transparent 60%),
-        rgba(10,16,40,.55);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
+      padding:44px 0 28px;
     }
-    .hero:before{
-      content:"";
-      position:absolute; inset:0;
-      background-image: var(--grid);
-      background-size: 44px 44px;
-      opacity:.72;
-      mask-image: radial-gradient(circle at 30% 20%, black 10%, transparent 68%);
-      pointer-events:none;
-    }
-    .hero-inner{
-      padding:32px 18px;
+    .hero-grid{
       display:grid;
-      gap:22px;
-      position:relative;
-    }
-    @media (min-width: 900px){
-      .hero-inner{
-        grid-template-columns: 1.2fr .8fr;
-        align-items:center;
-        padding:60px 54px;
-      }
-    }
-
-    .kicker{
-      font-size:12px;
-      color: rgba(102,208,255,.92);
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-weight:800;
-      margin-bottom: 10px;
-      display:block;
-    }
-
-    h1{
-      margin:0;
-      font-size:32px;
-      line-height:1.08;
-      letter-spacing:-.6px;
-      text-shadow: 0 0 22px rgba(102,208,255,.10);
-    }
-    @media (min-width: 768px){ h1{font-size:42px;} }
-    @media (min-width: 900px){ h1{font-size:56px;} }
-
-    .sub{
-      margin:12px 0 0 0;
-      font-size:16px;
-      color:var(--muted);
-      max-width: 75ch;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:22px;
-    }
-    @media (max-width: 600px){
-      .hero-actions{flex-direction:column;}
-      .hero-actions .btn{width:100%; padding:16px; font-size:16px;}
-    }
-
-    .trust-row{
-      margin-top:16px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      color: rgba(233,238,252,.88);
-      font-size:13px;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(120,180,255,.16);
-      background: rgba(255,255,255,.04);
-    }
-    .dot{
-      width:9px; height:9px; border-radius:50%;
-      background: var(--green);
-      box-shadow: 0 0 22px rgba(24,214,118,.22);
-      flex:0 0 auto;
-    }
-    .dot.blue{
-      background: rgba(102,208,255,.95);
-      box-shadow: 0 0 22px rgba(102,208,255,.22);
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(92,255,156,.26);
-      background: rgba(24,214,118,.10);
-      color: rgba(233,238,252,.94);
-      font-size:12px;
-      font-weight:800;
-      margin-top:12px;
-    }
-    .badge .dot{
-      width:8px; height:8px;
-      box-shadow: 0 0 18px rgba(24,214,118,.20);
-    }
-
-    /* Sections / Cards */
-    section{margin-top:34px}
-    h2{
-      margin:0 0 16px 0;
-      font-size:26px;
-      letter-spacing:-.2px;
-      line-height:1.2;
-    }
-    @media (min-width: 900px){
-      h2{font-size:30px}
-    }
-
-    .card{
-      border-radius: var(--radius);
-      border:1px solid rgba(120,180,255,.16);
-      background: var(--panel2);
-      padding:18px;
-    }
-    .card h3{
-      margin:0 0 8px 0;
-      font-size:14px;
-      letter-spacing:.2px;
-      color: var(--blue2);
-    }
-    .card p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .grid2{display:grid; gap:14px; grid-template-columns:1fr;}
-    .grid3{display:grid; gap:14px; grid-template-columns:1fr;}
-    @media (min-width: 900px){
-      .grid2{grid-template-columns:1fr 1fr;}
-      .grid3{grid-template-columns:1fr 1fr 1fr;}
-    }
-
-    .list{margin:12px 0 0 0; padding-left:18px; color:var(--muted)}
-    .list li{margin:8px 0}
-
-    /* Work / Proof */
-    .work{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      height:100%;
-    }
-    .work strong{
-      font-size:15px;
-      color:#fff;
-      letter-spacing:-.1px;
-    }
-    .meta{
-      font-size:12px;
-      color:rgba(233,238,252,.78);
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(120,180,255,.16);
-      background: rgba(255,255,255,.04);
-      font-size:12px;
-      color: rgba(233,238,252,.88);
-    }
-    .chip.green{
-      border-color: rgba(92,255,156,.22);
-      background: rgba(24,214,118,.08);
-    }
-
-    .shot{
-      border-radius: 14px;
-      border:1px solid rgba(120,180,255,.14);
-      background:
-        radial-gradient(600px 260px at 15% 20%, rgba(58,160,255,.20), transparent 60%),
-        radial-gradient(520px 240px at 80% 10%, rgba(24,214,118,.14), transparent 62%),
-        rgba(7,12,24,.45);
-      padding:14px;
-      color: rgba(233,238,252,.85);
-      font-size:12px;
-    }
-    .shot img, .shot video{
-      width:100%;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.06);
-      display:block;
-    }
-
-    /* Offers */
-    .pricebar{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .pricechip{
-      font-size:12px;
-      color:rgba(233,238,252,.92);
-      border:1px solid rgba(120,180,255,.16);
-      background: rgba(255,255,255,.04);
-      padding:10px 12px;
-      border-radius:14px;
-    }
-    .pricechip.green{
-      border-color: rgba(92,255,156,.22);
-      background: rgba(24,214,118,.08);
-    }
-
-    .offer{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      height:100%;
-    }
-    .offer strong{font-size:15px; color:#fff;}
-    .small{font-size:12px; color:rgba(233,238,252,.78)}
-    .tag{
-      margin-top:auto;
-      font-size:12px;
-      color:rgba(233,238,252,.90);
-      display:flex;
-      align-items:center;
-      gap:10px;
-      border-top:1px solid rgba(120,180,255,.12);
-      padding-top:12px;
-    }
-    .dot2{
-      width:8px; height:8px; border-radius:50%;
-      background: rgba(102,208,255,.95);
-      box-shadow: 0 0 22px rgba(102,208,255,.25);
-    }
-    .dot2.green{
-      background: var(--green);
-      box-shadow: 0 0 22px rgba(24,214,118,.22);
-    }
-
-    /* About */
-    .about-grid{
-      display:grid;
+      grid-template-columns: 1.25fr .75fr;
       gap:18px;
       align-items:start;
     }
-    @media (min-width: 900px){
-      .about-grid{grid-template-columns:1.35fr .65fr; align-items:center;}
+
+    .card{
+      background:linear-gradient(180deg, rgba(11,18,32,.78), rgba(11,18,32,.56));
+      border:1px solid rgba(25,227,108,.16);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
     }
-    .profile-pic{
-      width:100%;
-      max-width:340px;
-      border-radius:14px;
-      border:1px solid rgba(120,180,255,.22);
-      box-shadow: 0 10px 30px rgba(0,0,0,.3);
-      display:block;
-      margin: 0 auto;
-    }
-    .mini-pic{
-      width:100%;
-      max-width:340px;
-      border-radius:14px;
-      border:1px solid rgba(92,255,156,.22);
-      box-shadow: 0 10px 30px rgba(0,0,0,.3);
-      display:block;
-      margin: 14px auto 0;
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(520px 120px at 25% 0%, rgba(25,227,108,.18), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
     }
 
-    /* Testimonials */
+    h1{
+      font-size:42px;
+      line-height:1.06;
+      margin:0;
+      letter-spacing:-.7px;
+    }
+    .sub{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.5;
+      font-weight:600;
+    }
+    .hero-ctas{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:16px;
+    }
+
+    .proofline{
+      margin-top:14px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      color:var(--muted2);
+      font-size:12.5px;
+      font-weight:700;
+    }
+    .proofline .pill{
+      border:1px solid rgba(25,227,108,.14);
+      background:rgba(14,23,48,.32);
+      border-radius:999px;
+      padding:7px 10px;
+    }
+
+    .side{
+      display:grid;
+      gap:12px;
+    }
+    .side .mini{
+      padding:14px;
+    }
+    .kicker{
+      color:rgba(25,227,108,.95);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      text-shadow: 0 0 12px rgba(25,227,108,.16);
+    }
+    h2{
+      margin:0;
+      font-size:26px;
+      letter-spacing:-.3px;
+    }
+    h3{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-.2px;
+    }
+    .list{
+      margin:12px 0 0;
+      padding:0 0 0 18px;
+      color:var(--muted);
+      font-weight:600;
+      line-height:1.55;
+      font-size:13.5px;
+    }
+    .list li{margin:7px 0;}
+
+    .grid2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .work strong{
+      font-size:15px;
+      display:block;
+      margin-bottom:8px;
+    }
+    .meta{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:8px;
+    }
+    .chip{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+      border:1px solid rgba(25,227,108,.14);
+      padding:6px 9px;
+      border-radius:999px;
+      background:rgba(14,23,48,.26);
+    }
+    .chip.green{
+      border-color:rgba(25,227,108,.28);
+      color:rgba(225,255,237,.95);
+      box-shadow:0 0 18px rgba(25,227,108,.10);
+    }
+    .shot{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(25,227,108,.12);
+      background:rgba(0,0,0,.25);
+    }
+    .shot img, .shot video{
+      width:100%;
+      display:block;
+    }
+
+    .offers{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+    .offer .price{
+      margin-top:10px;
+      font-weight:900;
+      font-size:20px;
+      letter-spacing:-.4px;
+      color:rgba(225,255,237,.98);
+      text-shadow:0 0 16px rgba(25,227,108,.10);
+    }
+    .offer .fine{
+      margin-top:8px;
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+      line-height:1.45;
+    }
+    .offer .cta2{margin-top:12px;}
+
     .quote-card{
-      border-left: 4px solid rgba(24,214,118,.88);
-      text-align:left;
+      border-color:rgba(25,227,108,.18);
+      background:linear-gradient(180deg, rgba(14,23,48,.70), rgba(11,18,32,.55));
     }
     .quote-text{
-      font-size:16px;
-      font-style: italic;
-      color:#fff;
-      margin:0 0 14px 0;
-      line-height:1.55;
+      margin:0;
+      color:rgba(234,241,255,.96);
+      font-weight:650;
+      line-height:1.65;
+      font-size:14px;
     }
     .quote-author{
-      font-style: normal;
-      color: var(--muted);
-      font-size: 14px;
-      margin:0;
-    }
-
-    /* FAQ */
-    details{
-      border-radius: var(--radius);
-      border:1px solid rgba(120,180,255,.16);
-      background: rgba(7,12,24,.56);
-      padding:14px 16px;
-    }
-    summary{
-      cursor:pointer;
+      margin-top:12px;
+      color:var(--muted);
       font-weight:800;
-      color:#fff;
-      list-style:none;
-    }
-    summary::-webkit-details-marker{display:none;}
-    details p{
-      margin:10px 0 0 0;
-      color: var(--muted);
       font-size:13px;
     }
 
-    /* Google Form embed */
-    .gform-embed{
-      width:100%;
-      height:920px;
-      border:0;
-      border-radius:14px;
-    }
-    @media (max-width: 600px){
-      .gform-embed{ height:1080px; }
-    }
-
-    /* CTA block */
-    .cta{
-      margin-top:18px;
-      border-radius: var(--radius);
-      border:1px solid rgba(120,180,255,.18);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      padding:24px 18px;
-      display:grid;
-      gap:18px;
-      align-items:center;
-      position:relative;
-    }
-    .cta:before{
-      content:"";
-      position:absolute; inset:0;
-      background-image: var(--grid);
-      background-size: 44px 44px;
-      opacity:.25;
-      mask-image: radial-gradient(circle at 25% 10%, black 10%, transparent 65%);
-      pointer-events:none;
-    }
-    .cta > *{position:relative;}
-    @media (min-width: 900px){
-      .cta{grid-template-columns: 1fr .65fr; padding:22px;}
-    }
-
-    /* Footer */
-    footer{
-      margin-top:26px;
-      padding:22px 24px;
-      border-top:1px solid rgba(120,180,255,.14);
-      color:rgba(233,238,252,.72);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-    .footer-left{display:flex; flex-direction:column; gap:8px;}
-    .footer-branding{display:flex; align-items:center; gap:12px;}
-    .footer-logo{width:28px; height:28px; border-radius:8px; object-fit:contain}
-
     .fineprint{
-      margin:10px 0 0 0;
-      font-size:12px;
-      color: rgba(233,238,252,.70);
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+      line-height:1.5;
+      margin-top:10px;
     }
-    .fineprint a{
-      color: rgba(92,255,156,.92);
-      text-decoration:none;
+
+    .footer{
+      padding:34px 0 44px;
+      border-top:1px solid rgba(25,227,108,.10);
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+    }
+    .footer-grid{
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .footer small{opacity:.9;}
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr;}
+      .cta{min-width:auto;}
+      .brand{min-width:auto;}
+      .links{display:none;}
+      .offers{grid-template-columns:1fr;}
+      .grid2{grid-template-columns:1fr;}
+      h1{font-size:34px;}
+    }
+
+    /* Accessibility helpers */
+    .sr-only{
+      position:absolute;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a href="#top" class="sr-only">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="#top">
-          <img class="brand-logo" src="logo.png" alt="Blueprint AI Consulting Co. logo" />
-          <div class="brand-title">
-            <strong>Blueprint AI Consulting Co.</strong>
+  <div class="topbar">
+    <div class="wrap">
+      <header>
+        <nav aria-label="Primary">
+          <div class="brand">
+            <img src="logo.png" alt="Blueprint AI Consulting Co. logo" onerror="this.style.display='none';" />
+            <div>
+              <div class="name">Blueprint AI Consulting Co.</div>
+            </div>
           </div>
-        </a>
 
-        <div class="navlinks">
-          <a class="link" href="#how">How it works</a>
-          <a class="link" href="#proof">Proof</a>
-          <a class="link" href="#offers">Offers</a>
-          <a class="link" href="#roofers">Roofers</a>
-          <a class="link" href="#blueprint">Free AI Blueprint</a>
-          <a class="link" href="#testimonials">Testimonials</a>
-          <a class="link" href="#faq">FAQ</a>
-          <a class="link" href="#about">About</a>
-          <a class="btn ghost" href="#contact">Contact</a>
+          <div class="links" aria-label="Site sections">
+            <a href="#how">How it works</a>
+            <a href="#proof">Proof</a>
+            <a href="#offers">Offers</a>
+            <a href="#roofers">Roofers</a>
+            <a href="#blueprint">Free AI Blueprint</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
 
-          <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">
-            Message me
-            <span class="sr-only"> on Facebook</span>
-          </a>
-
-          <a class="btn secondary" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">
-            Book a call
-            <span class="sr-only"> (opens in same tab)</span>
-          </a>
-        </div>
-      </nav>
+          <div class="cta">
+            <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">
+              Message me
+              <span class="sr-only"> on Facebook</span>
+            </a>
+            <a class="btn secondary" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">
+              Book a call
+            </a>
+          </div>
+        </nav>
+      </header>
     </div>
-  </header>
+  </div>
 
   <div id="top" class="wrap">
-    <main id="main" role="main">
-
+    <main id="content">
       <!-- HERO -->
-      <header class="hero" aria-label="Hero">
-        <div class="hero-inner">
-          <div>
+      <section class="hero" aria-label="Hero">
+        <div class="hero-grid">
+          <div class="card">
             <div class="kicker">Blueprint AI Consulting Co.</div>
             <h1>We design, build, and deploy AI tools tailored to your operations.</h1>
-
             <p class="sub">
-              Built for home service businesses and coaches who want fewer dropped leads, cleaner follow-up, simpler operations, and systems that actually get used.
+              Built for home service businesses and coaches who want fewer dropped leads, cleaner follow-up, simpler operations,
+              and systems that actually get used.
             </p>
 
-            <!-- CTAs: Primary (Message), Secondary (Blueprint), Tertiary (Book) -->
-            <div class="hero-actions" aria-label="Primary calls to action">
+            <div class="hero-ctas">
               <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me on Facebook</a>
               <a class="btn secondary" href="#blueprint">Get the Free AI Blueprint</a>
               <a class="btn" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">Book a free discovery call</a>
             </div>
 
-            <div class="trust-row" aria-label="Trust indicators">
-              <span class="pill"><span class="dot" aria-hidden="true"></span>Shipped: 2 production apps</span>
-              <span class="pill"><span class="dot blue" aria-hidden="true"></span>10 years in tech</span>
-              <span class="pill"><span class="dot" aria-hidden="true"></span>Coach-first teaching style</span>
-              <span class="pill"><span class="dot blue" aria-hidden="true"></span>Serving Central PA + remote builds nationwide</span>
+            <div class="proofline" aria-label="Quick proof">
+              <div class="pill">Shipped: 2 production apps</div>
+              <div class="pill">10 years in tech</div>
+              <div class="pill">Coach-first teaching style</div>
+              <div class="pill">Serving Central PA + remote builds nationwide</div>
             </div>
 
-            <div class="badge" aria-label="Guarantee">
-              <span class="dot" aria-hidden="true"></span>
+            <div class="fineprint" style="margin-top:12px;">
               Money-back satisfaction guarantee on defined scopes
             </div>
           </div>
 
-          <div class="grid2" aria-label="Hero highlights">
-            <div class="card">
+          <div class="side">
+            <div class="card mini">
               <h3>Home services</h3>
-              <p>Lead capture, follow-up, pipeline, quoting, scheduling, and “where did that customer info go?” fixes.</p>
+              <p class="fineprint" style="margin-top:8px;">
+                Lead capture, follow-up, pipeline, quoting, scheduling, and “where did that customer info go?” fixes.
+              </p>
             </div>
-            <div class="card">
+            <div class="card mini">
               <h3>Coaches & programs</h3>
-              <p>Player development tracking, evaluation systems, practice planning workflows, and coach-friendly dashboards.</p>
+              <p class="fineprint" style="margin-top:8px;">
+                Player development tracking, evaluation systems, practice planning workflows, and coach-friendly dashboards.
+              </p>
             </div>
-            <div class="card">
+            <div class="card mini">
               <h3>Build before you buy</h3>
-              <p>We map your workflow first, then build the simplest system that fits how you actually operate.</p>
+              <p class="fineprint" style="margin-top:8px;">
+                We map your workflow first, then build the simplest system that fits how you actually operate.
+              </p>
             </div>
-            <div class="card">
+            <div class="card mini">
               <h3>Implementation, not theory</h3>
-              <p>You leave with working deliverables: templates, automations, and apps—plus training to run it.</p>
+              <p class="fineprint" style="margin-top:8px;">
+                You leave with working deliverables: templates, automations, and apps—plus training to run it.
+              </p>
             </div>
           </div>
         </div>
-      </header>
+      </section>
 
       <!-- HOW -->
-      <section id="how" aria-label="How it works">
+      <section id="how" aria-label="How we work">
         <div class="kicker">How we work</div>
         <h2>Simple process. Real output.</h2>
 
@@ -789,11 +561,11 @@
           </div>
         </div>
 
-        <div class="card" style="margin-top:14px;">
-          <h3>Optional (high-converting): 60–90 sec demo video</h3>
-          <p class="fineprint">Drop a file named <strong>demo.mp4</strong> in your repo and it will render here automatically.</p>
+        <div class="card" style="margin-top:14px;" id="demo-card">
+          <h3>Quick demo (60–90 sec)</h3>
+          <p class="fineprint">A short walkthrough of the kinds of systems we ship. If the video doesn’t load, message me and I’ll send the link.</p>
           <div class="shot" style="margin-top:12px;">
-            <video controls preload="metadata">
+            <video id="demoVideo" controls preload="metadata" playsinline>
               <source src="demo.mp4" type="video/mp4" />
             </video>
           </div>
@@ -806,125 +578,112 @@
         <h2>Clear options. Transparent pricing.</h2>
         <p class="sub">Defined scope where possible. Custom quote when needed.</p>
 
-        <div class="pricebar" aria-label="Price summary">
-          <div class="pricechip green">Quick Win Build (Pilot): $299</div>
-          <div class="pricechip">AI Coaching Sprint: $799</div>
-          <div class="pricechip">Workflow Audit (Systems Analysis): $499</div>
-          <div class="pricechip">Lead-Ready Website Sprint (Front Door): $499</div>
-          <div class="pricechip">Operations Buildout (Core): $1299+</div>
-          <div class="pricechip green">Blueprint CRM Build: $1499+</div>
-        </div>
-
-        <div class="grid2" style="margin-top:14px;">
+        <div class="offers">
           <div class="card offer">
-            <strong>Quick Win Build — $299</strong>
-            <div class="small">Best first step • 7 days • One bottleneck, fixed</div>
+            <h3>Quick Win Build (Pilot)</h3>
+            <div class="price">$299</div>
+            <p class="fine">Best first step • 7 days • One bottleneck, fixed</p>
             <ul class="list">
               <li>1 workflow mapped (how you actually work)</li>
               <li>1 build delivered (tracker, pipeline, automation, or mini system)</li>
               <li>Simple “Today view” so it gets used</li>
               <li>15–30 min handoff training</li>
             </ul>
-            <div class="tag"><span class="dot2 green"></span>
-              <a class="btn primary" style="width:100%;" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">
-                Message me “QUICK WIN”
-              </a>
+            <div class="cta2">
+              <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me “QUICK WIN”</a>
             </div>
           </div>
 
           <div class="card offer">
-            <strong>Workflow Audit — $499</strong>
-            <div class="small">Clarity-first • 3 priorities • Build plan included</div>
+            <h3>Workflow Audit (Systems Analysis)</h3>
+            <div class="price">$499</div>
+            <p class="fine">Clarity-first • 3 priorities • Build plan included</p>
             <ul class="list">
               <li>Workflow map + bottleneck diagnosis</li>
               <li>Top 3 fixes ranked by impact</li>
               <li>Tool recommendations (keep it lean)</li>
               <li>Build blueprint: what to implement next and why</li>
             </ul>
-            <div class="tag"><span class="dot2"></span>
-              <a class="btn secondary" style="width:100%;" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">
-                Book the audit call
-              </a>
+            <div class="cta2">
+              <a class="btn secondary" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">Book the audit call</a>
             </div>
           </div>
 
           <div class="card offer">
-            <strong>AI Coaching Sprint — $799</strong>
-            <div class="small">Hands-on training • Your real work • Templates included</div>
+            <h3>AI Coaching Sprint</h3>
+            <div class="price">$799</div>
+            <p class="fine">Hands-on training • Your real work • Templates included</p>
             <ul class="list">
               <li>Private coaching sessions tailored to your workflow</li>
               <li>Reusable prompts + templates</li>
               <li>Assistant setup you can keep using</li>
               <li>Process you can teach your team</li>
             </ul>
-            <div class="tag"><span class="dot2"></span>
-              <a class="btn primary" style="width:100%;" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">
-                Message me “COACHING”
-              </a>
+            <div class="cta2">
+              <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me “COACHING”</a>
             </div>
           </div>
 
           <div class="card offer">
-            <strong>Lead-Ready Website Sprint — $499</strong>
-            <div class="small">Fast • Mobile-first • Built to capture leads</div>
+            <h3>Lead-Ready Website Sprint (Front Door)</h3>
+            <div class="price">$499</div>
+            <p class="fine">Fast • Mobile-first • Built to capture leads</p>
             <ul class="list">
               <li>One clean landing page (or refresh)</li>
               <li>Clear calls-to-action (message, book, capture)</li>
               <li>Lead capture wiring (forms + tracking)</li>
               <li>Basic credibility blocks (proof + FAQ)</li>
             </ul>
-            <div class="tag"><span class="dot2"></span>
-              <a class="btn secondary" style="width:100%;" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">
-                Book the sprint call
-              </a>
+            <div class="cta2">
+              <a class="btn secondary" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">Book the sprint call</a>
             </div>
           </div>
 
           <div class="card offer">
-            <strong>Operations Buildout — from $1299</strong>
-            <div class="small">One major workflow end-to-end • Implementation + training</div>
+            <h3>Operations Buildout (Core)</h3>
+            <div class="price">$1299+</div>
+            <p class="fine">One major workflow end-to-end • Implementation + training</p>
             <ul class="list">
               <li>Design + build for a key process (lead → close, job tracking, quoting)</li>
               <li>Automations + templates + dashboards</li>
               <li>Documentation + training</li>
               <li>Launch support</li>
             </ul>
-            <div class="tag"><span class="dot2"></span>
-              <a class="btn primary" style="width:100%;" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">
-                Message me “BUILDOUT”
-              </a>
+            <div class="cta2">
+              <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me “BUILDOUT”</a>
             </div>
           </div>
 
           <div class="card offer">
-            <strong>Blueprint CRM Build — from $1499</strong>
-            <div class="small">Sales pipeline v1 • Stops leads from slipping • Owner-friendly</div>
+            <h3>Blueprint CRM Build</h3>
+            <div class="price">$1499+</div>
+            <p class="fine">Sales pipeline v1 • Stops leads from slipping • Owner-friendly</p>
             <ul class="list">
               <li>Pipeline stages customized to your business</li>
               <li>Lead capture + follow-up workflow</li>
               <li>Daily “Today view” + reminders</li>
               <li>Handoff training so you can run it</li>
             </ul>
-            <div class="tag"><span class="dot2 green"></span>
-              <a class="btn primary" style="width:100%;" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">
-                Message me “CRM”
-              </a>
+            <div class="cta2">
+              <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me “CRM”</a>
             </div>
           </div>
         </div>
 
-        <p class="fineprint" style="margin-top:12px;">
-          Want the fastest path? Start with <strong>Quick Win Build</strong> or grab the <strong>Free AI Blueprint</strong> below.
+        <p class="fineprint" style="margin-top:14px;">
+          Want the fastest path? Start with Quick Win Build or grab the Free AI Blueprint below.
         </p>
       </section>
 
-      <!-- ROOFERS (mini landing) -->
-      <section id="roofers" aria-label="Roofers">
+      <!-- ROOFERS -->
+      <section id="roofers" aria-label="Roofing businesses">
         <div class="kicker">Roofing businesses</div>
         <h2>A simple pipeline that stops missed leads.</h2>
-        <p class="sub">Roofers lose money on follow-up, quoting delays, and “we meant to call them back.”</p>
+        <p class="sub">
+          Roofers lose money on follow-up, quoting delays, and “we meant to call them back.”
+        </p>
 
-        <div class="grid2" style="margin-top:14px;">
+        <div class="grid2">
           <div class="card">
             <h3>Common roofing bottlenecks</h3>
             <ul class="list">
@@ -944,7 +703,7 @@
               <li>Basic reminders so leads don’t rot</li>
             </ul>
 
-            <div style="margin-top:12px; display:grid; gap:10px;">
+            <div class="hero-ctas" style="margin-top:14px;">
               <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me “ROOFER”</a>
               <a class="btn secondary" href="#blueprint">Get the Free AI Blueprint</a>
               <a class="btn" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">Book a free discovery call</a>
@@ -952,12 +711,12 @@
           </div>
         </div>
 
-        <p class="fineprint" style="margin-top:12px;">
-          Later, we can split this into a dedicated page (<strong>/roofers/</strong>) for ads and local search.
+        <p class="fineprint">
+          Later, we can split this into a dedicated page (/roofers/) for ads and local search.
         </p>
       </section>
 
-      <!-- FREE BLUEPRINT (Google Form embed) -->
+      <!-- FREE BLUEPRINT -->
       <section id="blueprint" aria-label="Free AI Blueprint">
         <div class="kicker">Free resource</div>
         <h2>Free AI Blueprint</h2>
@@ -965,37 +724,37 @@
           A simple, practical blueprint you can apply immediately to capture leads, tighten follow-up, and reduce busywork.
         </p>
 
-        <div class="grid2" style="margin-top:14px;">
+        <div class="grid2">
           <div class="card">
             <h3>Get it by email</h3>
-            <p class="fineprint" style="margin-top:8px;">
-              Fill this out and we’ll send the Free AI Blueprint to the email you enter.
-            </p>
+            <p class="fineprint">Fill this out and we’ll send the Free AI Blueprint to the email you enter.</p>
 
             <div class="shot" style="margin-top:12px;">
               <iframe
-                class="gform-embed"
+                title="Free AI Blueprint form"
                 src="https://docs.google.com/forms/d/e/1FAIpQLSdc5BAzjItuaRQkZadhzkM5Q5R3Np1AFY2ko66DiOYJXydlBw/viewform?embedded=true"
-                loading="lazy">
-                Loading…
-              </iframe>
+                width="100%"
+                height="620"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                style="border:0; background:rgba(0,0,0,.25);"
+              >Loading…</iframe>
             </div>
 
-            <p class="fineprint" style="margin-top:12px;">
+            <p class="fineprint">
               If the form doesn’t load, open it here:
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdc5BAzjItuaRQkZadhzkM5Q5R3Np1AFY2ko66DiOYJXydlBw/viewform">
-                Free AI Blueprint form
-              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdc5BAzjItuaRQkZadhzkM5Q5R3Np1AFY2ko66DiOYJXydlBw/viewform?usp=dialog" rel="noopener"><strong>Free AI Blueprint form</strong></a>
             </p>
           </div>
 
           <div class="card">
             <h3>Prefer a fast conversation?</h3>
-            <p>
+            <p class="fineprint">
               Message me your business type (roofer, landscaper, pressure washing, coach, etc.) and the #1 bottleneck you want fixed first.
             </p>
 
-            <div style="margin-top:14px; display:grid; gap:12px;">
+            <div class="hero-ctas" style="margin-top:14px;">
               <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me “BLUEPRINT”</a>
               <a class="btn" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">Book a free discovery call</a>
             </div>
@@ -1007,7 +766,7 @@
         </div>
       </section>
 
-      <!-- TESTIMONIAL -->
+      <!-- TESTIMONIALS -->
       <section id="testimonials" aria-label="Testimonials">
         <div class="kicker">Testimonials</div>
         <h2>What clients say.</h2>
@@ -1025,6 +784,34 @@
             Owner/Operator, God’s Grace Lawn Care
           </p>
         </div>
+
+        <div class="grid2" style="margin-top:14px;">
+          <div class="card">
+            <h3 style="margin:0 0 8px 0;">Mini case study: God’s Grace Lawn Care</h3>
+            <p class="fineprint" style="margin-top:0;">
+              A simple operations system + coaching for an “old-school” owner who wanted less mental load and cleaner follow-up.
+            </p>
+            <ul class="list" style="margin-top:10px;">
+              <li><strong>Before:</strong> Scheduling, bidding, and job details lived in texts, memory, and scattered notes</li>
+              <li><strong>Build:</strong> One owner-friendly command center to track jobs + follow-up + cost notes</li>
+              <li><strong>After:</strong> Easier scheduling and tracking, more consistency, and less time searching for info</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 8px 0;">What shipped (in plain terms)</h3>
+            <ul class="list" style="margin-top:10px;">
+              <li>A single “Today view” so the system actually gets used</li>
+              <li>Tracking blocks for scheduling, bidding, and cost notes</li>
+              <li>Simple follow-up prompts to reduce missed callbacks</li>
+              <li>Coaching so the owner could use AI tools himself</li>
+            </ul>
+            <p class="fineprint" style="margin-top:12px;">
+              Want something similar? Message me your business type and your #1 bottleneck.
+            </p>
+            <a class="btn primary" style="margin-top:10px;" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me on Facebook</a>
+          </div>
+        </div>
       </section>
 
       <!-- FAQ -->
@@ -1032,36 +819,31 @@
         <div class="kicker">FAQ</div>
         <h2>Quick answers before you reach out.</h2>
 
-        <div class="grid2" style="margin-top:14px;">
-          <details open>
-            <summary>Do I need to be “techy” for this to work?</summary>
-            <p>No. The goal is a system you can run daily. I build for owners and crews, then train you in plain language.</p>
-          </details>
-
-          <details>
-            <summary>What tools do you build in?</summary>
-            <p>Whatever fits your workflow. In many cases we use simple tools first. If you need a custom app, we deploy that too.</p>
-          </details>
-
-          <details>
-            <summary>How fast can we ship a first version?</summary>
-            <p>Quick Win Builds are designed to ship fast. Larger buildouts depend on scope, but the goal is always an early working version.</p>
-          </details>
-
-          <details>
-            <summary>What does “custom app” mean?</summary>
-            <p>A lightweight app tailored to your process—pipeline, notes, follow-up, job tracking, dashboards—built so your team actually uses it.</p>
-          </details>
-
-          <details>
-            <summary>Do you offer support after launch?</summary>
-            <p>Yes. You’ll also get documentation and training so you’re not dependent on me for basic changes.</p>
-          </details>
-
-          <details>
-            <summary>What should I start with?</summary>
-            <p>If you’re unsure, start with the Free AI Blueprint or a Quick Win Build focused on your biggest bottleneck (often lead capture or follow-up).</p>
-          </details>
+        <div class="grid2">
+          <div class="card">
+            <h3>Do I need to be “techy” for this to work?</h3>
+            <p class="fineprint">No. The goal is a system you can run daily. I build for owners and crews, then train you in plain language.</p>
+          </div>
+          <div class="card">
+            <h3>What tools do you build in?</h3>
+            <p class="fineprint">Whatever fits your workflow. In many cases we use simple tools first. If you need a custom app, we deploy that too.</p>
+          </div>
+          <div class="card">
+            <h3>How fast can we ship a first version?</h3>
+            <p class="fineprint">Quick Win Builds are designed to ship fast. Larger buildouts depend on scope, but the goal is always an early working version.</p>
+          </div>
+          <div class="card">
+            <h3>What does “custom app” mean?</h3>
+            <p class="fineprint">A lightweight app tailored to your process—pipeline, notes, follow-up, job tracking, dashboards—built so your team actually uses it.</p>
+          </div>
+          <div class="card">
+            <h3>Do you offer support after launch?</h3>
+            <p class="fineprint">Yes. You’ll also get documentation and training so you’re not dependent on me for basic changes.</p>
+          </div>
+          <div class="card">
+            <h3>What should I start with?</h3>
+            <p class="fineprint">If you’re unsure, start with the Free AI Blueprint or a Quick Win Build focused on your biggest bottleneck (often lead capture or follow-up).</p>
+          </div>
         </div>
       </section>
 
@@ -1070,68 +852,84 @@
         <div class="kicker">About</div>
         <h2>Hi, I’m Drew.</h2>
 
-        <div class="card about-grid" style="margin-top:14px">
-          <div>
-            <p style="margin:0; color:var(--muted);">
+        <div class="grid2">
+          <div class="card">
+            <p class="fineprint" style="margin-top:0;">
               I’m the founder of Blueprint AI Consulting Co. I build practical systems and custom apps that reduce busywork, tighten operations, and give you real time back.
             </p>
-            <p style="margin:12px 0 0 0; color:var(--muted);">
+            <p class="fineprint">
               I’ve spent 10 years in tech and I coach high school baseball. That combination shaped my approach: fundamentals, a clear plan, repetition, and tools that fit real routines.
             </p>
-            <p style="margin:12px 0 0 0; color:var(--muted);">
+            <p class="fineprint">
               I don’t just talk strategy. I implement. You leave with working deliverables and the ability to run them without depending on me forever.
             </p>
-
-            <div class="badge" style="margin-top:14px;">
-              <span class="dot" aria-hidden="true"></span>
+            <p class="fineprint">
               Money-back satisfaction guarantee on defined scopes
+            </p>
+            <p class="fineprint">
+              Email: <a href="mailto:blueprintaiconsultingco@gmail.com">blueprintaiconsultingco@gmail.com</a>
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Photos</h3>
+            <div class="grid2" style="grid-template-columns:1fr 1fr; margin-top:12px;">
+              <div class="shot">
+                <img src="coach_drew_profile_master_4k.jpg" alt="Drew Hufnagle" loading="lazy"
+                     onerror="this.parentElement.style.display='none';" />
+              </div>
+              <div class="shot">
+                <img src="drew_on_phone.jpg" alt="Drew on phone" loading="lazy"
+                     onerror="this.parentElement.style.display='none';" />
+              </div>
             </div>
+            <p class="fineprint">If you don’t see the images, double-check the filenames in your repo.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" aria-label="Contact">
+        <div class="kicker">Contact</div>
+        <h2>Want a simpler business week?</h2>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Fastest way to start</h3>
+            <p class="fineprint">
+              Message me first. Grab the Free AI Blueprint if you want to start solo. Book a call if you want a deeper walkthrough.
+            </p>
 
             <p class="fineprint" style="margin-top:12px;">
               Email: <a href="mailto:blueprintaiconsultingco@gmail.com">blueprintaiconsultingco@gmail.com</a>
             </p>
           </div>
 
-          <div>
-            <img src="webselfie.jpeg" alt="Drew Hufnagle" class="profile-pic" loading="lazy">
-            <img src="webselfie_phone.jpg" alt="Drew on phone" class="mini-pic" loading="lazy"
-                 onerror="this.style.display='none';" />
+          <div class="card">
+            <h3>Choose your path</h3>
+            <div style="display:grid; gap:12px; margin-top:12px;">
+              <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me</a>
+              <a class="btn secondary" href="#blueprint">Get the Free AI Blueprint</a>
+              <a class="btn" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">Book a free discovery call</a>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="cta" aria-label="Contact">
-        <div>
-          <div class="kicker">Contact</div>
-          <h2>Want a simpler business week?</h2>
-          <p class="sub">Message me first. Grab the Free AI Blueprint if you want to start solo. Book a call if you want a deeper walkthrough.</p>
-
-          <p class="fineprint" style="margin-top:12px;">
-            Email: <a href="mailto:blueprintaiconsultingco@gmail.com">blueprintaiconsultingco@gmail.com</a>
-          </p>
-        </div>
-
-        <div style="display:grid; gap:12px;">
-          <a class="btn primary" href="https://www.facebook.com/Blueprintaiconsultingco" rel="noopener">Message me</a>
-          <a class="btn secondary" href="#blueprint">Get the Free AI Blueprint</a>
-          <a class="btn" href="https://calendar.app.google/ABoSgYjoUzyC41sD7" rel="noopener">Book a free discovery call</a>
         </div>
       </section>
 
     </main>
 
-    <footer role="contentinfo">
-      <div class="footer-left">
-        <div class="footer-branding">
-          <img class="footer-logo" src="logo.png" alt="Blueprint AI Consulting Co. logo" />
-          <div>© <span id="year"></span> Blueprint AI Consulting Co.</div>
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-grid">
+        <div style="display:flex; gap:10px; align-items:center;">
+          <img src="logo.png" alt="Blueprint AI Consulting Co. logo" style="height:30px; width:auto; filter:drop-shadow(0 0 10px rgba(25,227,108,.18));"
+               onerror="this.style.display='none';" />
+          <div><strong>Blueprint AI Consulting Co.</strong></div>
         </div>
-        <div>
-          <a href="mailto:blueprintaiconsultingco@gmail.com" style="text-decoration:none; color:inherit;">
-            blueprintaiconsultingco@gmail.com
-          </a>
-        </div>
+
+        <small>© <span id="year"></span> Blueprint AI Consulting Co.</small>
+      </div>
+      <div class="fineprint" style="margin-top:10px;">
+        <a href="mailto:blueprintaiconsultingco@gmail.com">blueprintaiconsultingco@gmail.com</a>
       </div>
       <div>Serving Central PA + remote builds nationwide.</div>
     </footer>
@@ -1139,6 +937,20 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    (function () {
+      const demoCard = document.getElementById("demo-card");
+      const demoVideo = document.getElementById("demoVideo");
+      if (!demoCard || !demoVideo) return;
+
+      const hide = () => { demoCard.style.display = "none"; };
+
+      const source = demoVideo.querySelector("source");
+      if (source) source.addEventListener("error", hide);
+      demoVideo.addEventListener("error", hide);
+    })();
   </script>
 
   <script type="application/ld+json">
