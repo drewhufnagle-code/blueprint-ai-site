@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -8,6 +8,9 @@
   <meta name="theme-color" content="#0B1220" />
 
   <title>Blueprint AI Consulting Co. | AI Tools Built Around Your Operations</title>
+
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo.png" />
 
   <!-- Inter (brand font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,16 +32,22 @@
       --text:#EAF1FF;
       --muted:#A6B1CC;
       --muted2:#8793B2;
-      --line:rgba(112, 204, 140, .18);
 
-      /* Neon green (slightly darker, still glowing) */
-      --g1:#19e36c; /* darker neon */
-      --g2:#0fd361;
-      --g3:#0bbf58;
+      /* Neon BLUE is the main glow */
+      --b1:#3AA0FF;
+      --b2:#66D0FF;
+      --b3:#2E7BFF;
+
+      /* Neon GREEN stays as accent (slightly darker but still neon/glow) */
+      --g1:#19E36C;
+      --g2:#0FD361;
+      --g3:#0BBF58;
+
+      --lineBlue:rgba(102, 208, 255, .16);
+      --lineGreen:rgba(25, 227, 108, .16);
 
       --shadow:0 10px 40px rgba(0,0,0,.45);
       --radius:18px;
-
       --max:1120px;
     }
 
@@ -48,40 +57,53 @@
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
+
+      /* Main blueprint glow = neon blue */
       background:
-        radial-gradient(900px 600px at 20% -10%, rgba(25,227,108,.20), transparent 55%),
-        radial-gradient(900px 600px at 90% 0%, rgba(15,211,97,.12), transparent 50%),
-        radial-gradient(900px 700px at 60% 120%, rgba(15,211,97,.10), transparent 55%),
+        radial-gradient(900px 600px at 18% -10%, rgba(58,160,255,.26), transparent 55%),
+        radial-gradient(900px 600px at 90% 0%, rgba(102,208,255,.18), transparent 55%),
+        radial-gradient(900px 700px at 55% 120%, rgba(58,160,255,.14), transparent 55%),
+
+        /* Green stays subtle */
+        radial-gradient(700px 520px at 72% 20%, rgba(25,227,108,.10), transparent 60%),
+        radial-gradient(800px 700px at 20% 120%, rgba(15,211,97,.07), transparent 60%),
+
         linear-gradient(180deg, #060A10, #070B12 40%, #060A10);
+
+      line-height:1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Blueprint grid */
+    /* Blueprint grid (blue) */
     body:before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
       background:
-        linear-gradient(to right, rgba(25,227,108,.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(25,227,108,.07) 1px, transparent 1px);
+        linear-gradient(to right, rgba(102,208,255,.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(102,208,255,.08) 1px, transparent 1px);
       background-size:48px 48px;
-      mask-image:radial-gradient(900px 600px at 50% 10%, rgba(0,0,0,1), rgba(0,0,0,.1) 55%, rgba(0,0,0,0) 78%);
-      opacity:.9;
+      mask-image:radial-gradient(900px 600px at 50% 10%, rgba(0,0,0,1), rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%);
+      opacity:.95;
     }
 
     a{color:inherit; text-decoration:none;}
     a:hover{opacity:.92;}
 
+    img{max-width:100%; height:auto; display:block;}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background:linear-gradient(180deg, rgba(7,11,18,.75), rgba(7,11,18,.45));
-      border-bottom:1px solid rgba(25,227,108,.12);
+      background:linear-gradient(180deg, rgba(7,11,18,.78), rgba(7,11,18,.48));
+      border-bottom:1px solid rgba(102,208,255,.16);
     }
 
     header{
-      padding:16px 0; /* ~10% smaller than previous */
+      padding:14px 0; /* slightly smaller header */
     }
 
     nav{
@@ -93,20 +115,13 @@
       display:flex; align-items:center; gap:12px; min-width:240px;
     }
     .brand img{
-      height:34px; width:auto;
-      filter: drop-shadow(0 0 10px rgba(25,227,108,.22));
+      height:32px; width:auto;
+      filter: drop-shadow(0 0 14px rgba(58,160,255,.22));
     }
     .brand .name{
       font-weight:800; letter-spacing:.2px;
       font-size:14px;
       line-height:1.05;
-    }
-    .brand .tag{
-      display:block;
-      margin-top:3px;
-      font-size:12px;
-      color:var(--muted);
-      font-weight:500;
     }
 
     .links{
@@ -124,7 +139,7 @@
       border:1px solid transparent;
     }
     .links a:hover{
-      border-color:rgba(25,227,108,.16);
+      border-color:rgba(102,208,255,.18);
       color:var(--text);
       background:rgba(14,23,48,.35);
     }
@@ -155,22 +170,25 @@
       box-shadow:0 0 26px rgba(25,227,108,.12);
     }
     .btn.primary{
-      background:linear-gradient(135deg, rgba(25,227,108,.22), rgba(15,211,97,.12));
-      border-color:rgba(25,227,108,.35);
+      background:linear-gradient(135deg, rgba(25,227,108,.20), rgba(15,211,97,.10));
+      border-color:rgba(25,227,108,.34);
       box-shadow:0 0 30px rgba(25,227,108,.12);
     }
     .btn.secondary{
       background:rgba(14,23,48,.55);
-      border-color:rgba(25,227,108,.20);
+      border-color:rgba(102,208,255,.18);
+      box-shadow:0 0 26px rgba(102,208,255,.08);
+    }
+    .btn.secondary:hover{
+      border-color:rgba(102,208,255,.28);
+      box-shadow:0 0 30px rgba(102,208,255,.10);
     }
 
     main{padding:30px 0 60px;}
-    section{padding:36px 0; border-top:1px solid rgba(25,227,108,.10);}
+    section{padding:36px 0; border-top:1px solid rgba(102,208,255,.10);}
     section:first-of-type{border-top:none;}
 
-    .hero{
-      padding:44px 0 28px;
-    }
+    .hero{padding:44px 0 28px;}
     .hero-grid{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
@@ -180,7 +198,7 @@
 
     .card{
       background:linear-gradient(180deg, rgba(11,18,32,.78), rgba(11,18,32,.56));
-      border:1px solid rgba(25,227,108,.16);
+      border:1px solid rgba(102,208,255,.16);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:18px;
@@ -190,9 +208,11 @@
     .card:before{
       content:"";
       position:absolute; inset:-2px;
-      background:radial-gradient(520px 120px at 25% 0%, rgba(25,227,108,.18), transparent 55%);
+      background:
+        radial-gradient(560px 140px at 22% 0%, rgba(58,160,255,.18), transparent 58%),
+        radial-gradient(520px 120px at 75% 0%, rgba(25,227,108,.10), transparent 60%);
       pointer-events:none;
-      opacity:.9;
+      opacity:.95;
     }
 
     h1{
@@ -221,38 +241,28 @@
       font-weight:700;
     }
     .proofline .pill{
-      border:1px solid rgba(25,227,108,.14);
+      border:1px solid rgba(102,208,255,.14);
       background:rgba(14,23,48,.32);
       border-radius:999px;
       padding:7px 10px;
     }
 
-    .side{
-      display:grid;
-      gap:12px;
-    }
-    .side .mini{
-      padding:14px;
-    }
+    .side{display:grid; gap:12px;}
+    .side .mini{padding:14px;}
+
     .kicker{
-      color:rgba(25,227,108,.95);
+      color:rgba(102,208,255,.95);
       font-size:12px;
       font-weight:900;
       letter-spacing:.14em;
       text-transform:uppercase;
       margin-bottom:10px;
-      text-shadow: 0 0 12px rgba(25,227,108,.16);
+      text-shadow: 0 0 14px rgba(58,160,255,.18);
     }
-    h2{
-      margin:0;
-      font-size:26px;
-      letter-spacing:-.3px;
-    }
-    h3{
-      margin:0;
-      font-size:16px;
-      letter-spacing:-.2px;
-    }
+
+    h2{margin:0; font-size:26px; letter-spacing:-.3px;}
+    h3{margin:0; font-size:16px; letter-spacing:-.2px;}
+
     .list{
       margin:12px 0 0;
       padding:0 0 0 18px;
@@ -275,15 +285,17 @@
       display:block;
       margin-bottom:8px;
     }
+
     .meta{
       display:flex; flex-wrap:wrap; gap:8px;
       margin-top:8px;
     }
+
     .chip{
       font-size:12px;
       color:var(--muted);
       font-weight:800;
-      border:1px solid rgba(25,227,108,.14);
+      border:1px solid rgba(102,208,255,.14);
       padding:6px 9px;
       border-radius:999px;
       background:rgba(14,23,48,.26);
@@ -293,15 +305,12 @@
       color:rgba(225,255,237,.95);
       box-shadow:0 0 18px rgba(25,227,108,.10);
     }
+
     .shot{
       border-radius:14px;
       overflow:hidden;
-      border:1px solid rgba(25,227,108,.12);
+      border:1px solid rgba(102,208,255,.12);
       background:rgba(0,0,0,.25);
-    }
-    .shot img, .shot video{
-      width:100%;
-      display:block;
     }
 
     .offers{
@@ -315,8 +324,8 @@
       font-weight:900;
       font-size:20px;
       letter-spacing:-.4px;
-      color:rgba(225,255,237,.98);
-      text-shadow:0 0 16px rgba(25,227,108,.10);
+      color:rgba(234,241,255,.98);
+      text-shadow:0 0 18px rgba(58,160,255,.10);
     }
     .offer .fine{
       margin-top:8px;
@@ -328,7 +337,7 @@
     .offer .cta2{margin-top:12px;}
 
     .quote-card{
-      border-color:rgba(25,227,108,.18);
+      border-color:rgba(102,208,255,.18);
       background:linear-gradient(180deg, rgba(14,23,48,.70), rgba(11,18,32,.55));
     }
     .quote-text{
@@ -355,7 +364,7 @@
 
     .footer{
       padding:34px 0 44px;
-      border-top:1px solid rgba(25,227,108,.10);
+      border-top:1px solid rgba(102,208,255,.10);
       color:var(--muted);
       font-weight:650;
       font-size:13px;
@@ -364,9 +373,15 @@
       display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
       gap:12px;
     }
-    .footer small{opacity:.9;}
 
-    /* Mobile */
+    .sr-only{
+      position:absolute;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
+
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr;}
       .cta{min-width:auto;}
@@ -375,15 +390,6 @@
       .offers{grid-template-columns:1fr;}
       .grid2{grid-template-columns:1fr;}
       h1{font-size:34px;}
-    }
-
-    /* Accessibility helpers */
-    .sr-only{
-      position:absolute;
-      width:1px; height:1px;
-      padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0);
-      white-space:nowrap; border:0;
     }
   </style>
 </head>
@@ -397,9 +403,7 @@
         <nav aria-label="Primary">
           <div class="brand">
             <img src="logo.png" alt="Blueprint AI Consulting Co. logo" onerror="this.style.display='none';" />
-            <div>
-              <div class="name">Blueprint AI Consulting Co.</div>
-            </div>
+            <div class="name">Blueprint AI Consulting Co.</div>
           </div>
 
           <div class="links" aria-label="Site sections">
@@ -481,7 +485,7 @@
             <div class="card mini">
               <h3>Implementation, not theory</h3>
               <p class="fineprint" style="margin-top:8px;">
-                You leave with working deliverables: templates, automations, and apps—plus training to run it.
+                You leave with working deliverables: templates, automations, and apps, plus training to run it.
               </p>
             </div>
           </div>
@@ -536,9 +540,16 @@
               <li>Reduces missed follow-ups and scattered info</li>
               <li>Built to be simple enough to run daily</li>
             </ul>
+
+            <!-- Cache-bust param forces browsers to load your latest image -->
             <div class="shot" style="margin-top:10px;">
-              <img src="ops_command_center.jpg" alt="Operations Command Center screenshot"
-                   loading="lazy" onerror="this.parentElement.style.display='none';" />
+              <img
+                src="ops_command_center.jpg?v=2"
+                alt="Operations Command Center screenshot"
+                loading="lazy"
+                decoding="async"
+                onerror="this.parentElement.style.display='none';"
+              />
             </div>
           </div>
 
@@ -554,9 +565,15 @@
               <li>Creates clarity for coaches, players, and parents</li>
               <li>Built as a proof-of-concept for any sport, any age</li>
             </ul>
+
             <div class="shot" style="margin-top:10px;">
-              <img src="player_dev_command_center.jpg" alt="Player Development Command Center screenshot"
-                   loading="lazy" onerror="this.parentElement.style.display='none';" />
+              <img
+                src="player_dev_command_center.jpg?v=2"
+                alt="Player Development Command Center screenshot"
+                loading="lazy"
+                decoding="async"
+                onerror="this.parentElement.style.display='none';"
+              />
             </div>
           </div>
         </div>
@@ -716,7 +733,7 @@
         </p>
       </section>
 
-      <!-- FREE BLUEPRINT -->
+      <!-- FREE BLUEPRINT (link only, no embed) -->
       <section id="blueprint" aria-label="Free AI Blueprint">
         <div class="kicker">Free resource</div>
         <h2>Free AI Blueprint</h2>
@@ -727,24 +744,20 @@
         <div class="grid2">
           <div class="card">
             <h3>Get it by email</h3>
-            <p class="fineprint">Fill this out and we’ll send the Free AI Blueprint to the email you enter.</p>
+            <p class="fineprint">Open the form, submit it, and you’ll receive the Free AI Blueprint at the email you enter.</p>
 
-            <div class="shot" style="margin-top:12px;">
-              <iframe
-                title="Free AI Blueprint form"
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdc5BAzjItuaRQkZadhzkM5Q5R3Np1AFY2ko66DiOYJXydlBw/viewform?embedded=true"
-                width="100%"
-                height="620"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0"
-                style="border:0; background:rgba(0,0,0,.25);"
-              >Loading…</iframe>
+            <div class="hero-ctas" style="margin-top:14px;">
+              <a
+                class="btn secondary"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdc5BAzjItuaRQkZadhzkM5Q5R3Np1AFY2ko66DiOYJXydlBw/viewform?usp=dialog"
+                rel="noopener"
+              >
+                Open the Free AI Blueprint form
+              </a>
             </div>
 
             <p class="fineprint">
-              If the form doesn’t load, open it here:
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdc5BAzjItuaRQkZadhzkM5Q5R3Np1AFY2ko66DiOYJXydlBw/viewform?usp=dialog" rel="noopener"><strong>Free AI Blueprint form</strong></a>
+              Prefer Facebook Messenger? Message me “BLUEPRINT” and your business type.
             </p>
           </div>
 
@@ -834,7 +847,7 @@
           </div>
           <div class="card">
             <h3>What does “custom app” mean?</h3>
-            <p class="fineprint">A lightweight app tailored to your process—pipeline, notes, follow-up, job tracking, dashboards—built so your team actually uses it.</p>
+            <p class="fineprint">A lightweight app tailored to your process: pipeline, notes, follow-up, job tracking, dashboards, built so your team actually uses it.</p>
           </div>
           <div class="card">
             <h3>Do you offer support after launch?</h3>
@@ -875,12 +888,22 @@
             <h3>Photos</h3>
             <div class="grid2" style="grid-template-columns:1fr 1fr; margin-top:12px;">
               <div class="shot">
-                <img src="coach_drew_profile_master_4k.jpg" alt="Drew Hufnagle" loading="lazy"
-                     onerror="this.parentElement.style.display='none';" />
+                <img
+                  src="coach_drew_profile_master_4k.jpg?v=2"
+                  alt="Drew Hufnagle"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.parentElement.style.display='none';"
+                />
               </div>
               <div class="shot">
-                <img src="drew_on_phone.jpg" alt="Drew on phone" loading="lazy"
-                     onerror="this.parentElement.style.display='none';" />
+                <img
+                  src="drew_on_phone.jpg?v=2"
+                  alt="Drew on phone"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.parentElement.style.display='none';"
+                />
               </div>
             </div>
             <p class="fineprint">If you don’t see the images, double-check the filenames in your repo.</p>
@@ -921,8 +944,12 @@
     <footer class="footer" aria-label="Footer">
       <div class="footer-grid">
         <div style="display:flex; gap:10px; align-items:center;">
-          <img src="logo.png" alt="Blueprint AI Consulting Co. logo" style="height:30px; width:auto; filter:drop-shadow(0 0 10px rgba(25,227,108,.18));"
-               onerror="this.style.display='none';" />
+          <img
+            src="logo.png"
+            alt="Blueprint AI Consulting Co. logo"
+            style="height:30px; width:auto; filter:drop-shadow(0 0 14px rgba(58,160,255,.18));"
+            onerror="this.style.display='none';"
+          />
           <div><strong>Blueprint AI Consulting Co.</strong></div>
         </div>
 
