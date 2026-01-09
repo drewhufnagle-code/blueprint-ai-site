@@ -582,8 +582,9 @@
           <h3>Quick demo (60–90 sec)</h3>
           <p class="fineprint">A short walkthrough of the kinds of systems we ship. If the video doesn’t load, message me and I’ll send the link.</p>
           <div class="shot" style="margin-top:12px;">
-            <video id="demoVideo" controls preload="metadata" playsinline>
-              <source src="demo.mp4" type="video/mp4" />
+            <video id="demoVideo" controls preload="metadata" playsinline aria-label="Demo walkthrough video (60–90 seconds)">
+              <source data-src="demo.mp4" type="video/mp4" />
+              This demo video walks through the systems we ship. If you cannot view it, please contact us for a direct link.
             </video>
           </div>
         </div>
@@ -977,6 +978,28 @@
       const source = demoVideo.querySelector("source");
       if (source) source.addEventListener("error", hide);
       demoVideo.addEventListener("error", hide);
+
+      const loadVideo = () => {
+        if (!source) return;
+        const src = source.getAttribute("data-src");
+        // Avoid reloading if the source has already been attached
+        if (!src || source.hasAttribute("src")) return;
+        source.setAttribute("src", src);
+        demoVideo.load();
+      };
+
+      if ("IntersectionObserver" in window) {
+        // Start loading when the card is within ~200px of view to keep playback responsive
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0]?.isIntersecting) {
+            loadVideo();
+            observer.disconnect();
+          }
+        }, { rootMargin: "200px" });
+        observer.observe(demoCard);
+      } else {
+        loadVideo();
+      }
     })();
   </script>
 
