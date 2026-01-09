@@ -982,12 +982,13 @@
       const loadVideo = () => {
         const src = source?.getAttribute("data-src");
         // Avoid reloading if the source has already been attached
-        if (src === null || src === "" || source.hasAttribute("src")) return;
+        if (!src || source.hasAttribute("src")) return;
         source.setAttribute("src", src);
         demoVideo.load();
       };
 
       if ("IntersectionObserver" in window) {
+        // Start loading when the card is within ~200px of view to keep playback responsive
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
