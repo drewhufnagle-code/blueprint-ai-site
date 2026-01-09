@@ -583,7 +583,7 @@
           <p class="fineprint">A short walkthrough of the kinds of systems we ship. If the video doesn’t load, message me and I’ll send the link.</p>
           <div class="shot" style="margin-top:12px;">
             <video id="demoVideo" controls preload="metadata" playsinline>
-              <source src="demo.mp4" type="video/mp4" />
+              <source data-src="demo.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -977,6 +977,27 @@
       const source = demoVideo.querySelector("source");
       if (source) source.addEventListener("error", hide);
       demoVideo.addEventListener("error", hide);
+
+      const loadVideo = () => {
+        const src = source?.getAttribute("data-src");
+        if (!src || source.getAttribute("src")) return;
+        source.setAttribute("src", src);
+        demoVideo.load();
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadVideo();
+              observer.disconnect();
+            }
+          });
+        }, { rootMargin: "200px" });
+        observer.observe(demoCard);
+      } else {
+        loadVideo();
+      }
     })();
   </script>
 
